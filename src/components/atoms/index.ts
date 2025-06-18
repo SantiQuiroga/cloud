@@ -2,6 +2,9 @@ export { Button, buttonVariants } from './Button';
 export { Input } from './Input';
 export { Label } from './Label';
 export { Textarea } from './Textarea';
+export { FileUploadInput } from './FileUploadInput';
+export { ProgressBar } from './ProgressBar';
+export { ImagePreview } from './ImagePreview';
 export {
   Card,
   CardHeader,

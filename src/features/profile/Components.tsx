@@ -10,6 +10,7 @@ import { MessageDisplay } from '@/components/molecules/MessageDisplay';
 import { ProfilePageTemplate } from '@/components/templates/ProfilePageTemplate';
 import { UserProfileForm } from '@/components/organisms/UserProfileForm';
 import { PostsManager } from '../posts/Components';
+import { PhotoUploadManager } from '../photo-upload/Components';
 import { useUserProfile } from './hooks/useUserProfile';
 import { AuthService } from '../auth/services/authService';
 import { googleProvider, facebookProvider } from '@/lib/firebase';
@@ -163,9 +164,10 @@ export function ProfilePage({ user }: ProfilePageProps) {
   return (
     <ProfilePageTemplate>
       <Tabs defaultValue="profile" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="profile">Mi Perfil</TabsTrigger>
           <TabsTrigger value="posts">Mis Posts</TabsTrigger>
+          <TabsTrigger value="photos">Mis Fotos</TabsTrigger>
         </TabsList>
 
         <TabsContent value="profile" className="space-y-6">
@@ -259,6 +261,10 @@ export function ProfilePage({ user }: ProfilePageProps) {
 
         <TabsContent value="posts" className="space-y-6">
           <PostsManager user={user} />
+        </TabsContent>
+
+        <TabsContent value="photos" className="space-y-6">
+          <PhotoUploadManager user={user} />
         </TabsContent>
       </Tabs>
     </ProfilePageTemplate>

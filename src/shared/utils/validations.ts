@@ -25,6 +25,12 @@ export const postSchema = z.object({
   content: z.string().min(1, VALIDATION_MESSAGES.REQUIRED_FIELD).max(1000, VALIDATION_MESSAGES.MAX_LENGTH(1000)),
 });
 
+export const photoMetadataSchema = z.object({
+  alt: z.string().max(200, VALIDATION_MESSAGES.MAX_LENGTH(200)).optional(),
+  caption: z.string().max(500, VALIDATION_MESSAGES.MAX_LENGTH(500)).optional(),
+});
+
 export type AuthFormData = z.infer<typeof authSchema>;
 export type UserProfileFormData = z.infer<typeof userProfileSchema>;
 export type PostFormData = z.infer<typeof postSchema>;
+export type PhotoMetadataFormData = z.infer<typeof photoMetadataSchema>;
